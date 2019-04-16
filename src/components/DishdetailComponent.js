@@ -34,7 +34,8 @@ class DishdetailComponent extends Component{
                         <div key={cmt.id}>
                         <CardBody>
                             <CardText>{cmt.comment}</CardText>
-                            <CardText>--{cmt.author},{cmt.date}</CardText>
+                            <CardText>--{cmt.author},
+                            {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(cmt.date)))}</CardText>
                         </CardBody>
                     </div>
                     );
@@ -58,10 +59,10 @@ class DishdetailComponent extends Component{
         <div className="container">
             <div className="row">
             <div  className="col-12 col-md-5 m-1">
-                {this.renderDish(this.props.details)}
+                {this.renderDish(this.props.dish)}
             </div>
             <div  className="col-12 col-md-5 m-1">
-                {this.renderComments(this.props.details)}
+                {this.renderComments(this.props.dish)}
             </div>
             </div>
         </div>
